@@ -27,7 +27,7 @@ const NavContent = () => {
               href={item.route}
               className={`${
                 isActive
-                  ? 'bg-fuchsia-300/20 text-fuchsia-400 rounded-lg'
+                  ? 'bg-fuchsia-300/25 text-fuchsia-400 rounded-lg'
                   : 'text-zinc-700 '
               } flex items-center justify-start gap-4 bg-transparent p-4  `}
             >
