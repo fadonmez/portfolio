@@ -7,6 +7,10 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  other: {
+    viewport:
+      'width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1,  user-scalable=no',
+  },
   title: 'Fatih Donmez - Portfolio',
   description: 'Welcome to my portfolio',
 };
