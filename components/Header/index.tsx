@@ -11,14 +11,6 @@ const Header = () => {
   return (
     <header className='container flex mx-auto px-7 py-3.5 justify-between items-center h-[12%]'>
       <Link href='/' className='flex items-center gap-2'>
-        <Image
-          width={80}
-          className='rounded-full'
-          height={80}
-          alt='avatar'
-          src='https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp'
-        />
-
         <div className='flex items-start justify-start flex-col'>
           <h3 className='font-bold text-xl md:text-3xl '>Fatih Dönmez</h3>
           <p className=' text-zinc-600'>Software Engineer</p>

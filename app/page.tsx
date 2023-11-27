@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export default function Home() {
@@ -24,20 +25,19 @@ export default function Home() {
           , where I&apos;ve been developing web applications for a while. I have
           a background in computer science and have a strong understanding of
           object-oriented programming.{' '}
-          <p className='hidden md:block'>
+          <span className='hidden md:block'>
             I&apos;m a quick learner and collaborate closely with clients to
-            create efficient, scalable, and user-friendly solutions that solve
+            create efficient, scalable, and user-friendly solutions that solveé
             real-world problems. I&apos;m excited to continue my journey as a
             software engineer and to contribute my skills to the world of web
             development. Thank you for taking the time to visit my portfolio and
             blog. Let&apos;s work together to bring your ideas to life!
-          </p>
+          </span>
         </p>
-        <Link
-          href='/contact'
-          className='bg-fuchsia-600 text-white px-6 py-3 rounded-md mt-6'
-        >
-          Contact Me
+        <Link href='/contact'>
+          <Button className='bg-fuchsia-600 text-white px-6 py-3 rounded-md mt-6 hover:bg-fuchsia-500'>
+            Contact me
+          </Button>
         </Link>
       </div>
     </div>
