@@ -22,7 +22,7 @@ const SkillCard = ({ skill }: Iprops) => {
   return (
     <MotionDiv
       variants={item}
-      className='bg-fuchsia-300/30 border border-fuchsia-200 text-zinc-800  flex px-4 py-2  rounded-md items-center justify-center gap-4'
+      className='bg-green-300/30 border border-green-200 text-zinc-800  flex px-4 py-2  rounded-md items-center justify-center gap-4'
     >
       {skill.title}
     </MotionDiv>

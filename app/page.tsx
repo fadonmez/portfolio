@@ -13,16 +13,14 @@ export default function Home() {
       >
         <h1 className='text-4xl md:text-6xl font-semibold text-center text-white '>
           Welcome to my <br />
-          <span className=' text-fuchsia-600'>
-            portfolio and personal blog !
-          </span>
+          <span className=' text-green-500'>portfolio and personal blog !</span>
         </h1>
         <p className='text-zinc-200 text-center mt-6 text-md md:text-lg'>
           I&apos;m a software engineer with a passion for creating beautiful and
           functional web applications. I&apos;m currently working at a startup
           called{' '}
           <a
-            className='text-fuchsia-400 underline'
+            className='text-green-400 underline'
             href='https://tayfun.net/'
             target='_blank'
           >
@@ -41,7 +39,7 @@ export default function Home() {
           </span>
         </p>
         <Link href='/contact'>
-          <Button className='bg-fuchsia-600 text-white px-6 py-3 rounded-md mt-6 hover:bg-fuchsia-500'>
+          <Button className='bg-green-600 text-white px-6 py-3 rounded-md mt-6 hover:bg-green-500'>
             Contact me
           </Button>
         </Link>
