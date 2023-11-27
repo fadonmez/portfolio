@@ -46,7 +46,7 @@ const NavContent = () => {
 const MobileNav = () => {
   return (
     <Sheet>
-      <SheetTrigger asChild className='block md:hidden'>
+      <SheetTrigger className='block md:hidden'>
         <BiMenuAltLeft size={32} />
       </SheetTrigger>
       <SheetContent className='border-none'>

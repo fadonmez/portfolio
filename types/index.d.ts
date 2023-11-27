@@ -12,3 +12,8 @@ export interface Projects {
   image: string;
   link: string;
 }
+
+export interface mailType {
+  email: string;
+  message: string;
+}
