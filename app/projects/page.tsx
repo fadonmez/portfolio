@@ -1,7 +1,13 @@
 import { MotionDiv } from '@/components/MotionDiv';
 import ProjectCard from '@/components/shared/ProjectCard';
 import { projects } from '@/constants/projects';
+import { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description: 'My previous projects',
+};
 
 const Projects = () => {
   const container = {
@@ -24,7 +30,7 @@ const Projects = () => {
         functional web applications. I&apos;m currently working at a startup
         called{' '}
         <a
-          className='text-fuchsia-400 underline'
+          className='font-semibold underline'
           href='XXXXXXXXXXXXXXXXXXX'
           target='_blank'
         >

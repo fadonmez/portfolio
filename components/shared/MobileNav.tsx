@@ -28,8 +28,8 @@ const NavContent = () => {
               className={`${
                 isActive
                   ? ' bg-fuchsia-100 text-fuchsia-400 rounded-lg'
-                  : 'text-zinc-700 '
-              } flex items-center justify-start gap-4 bg-transparent p-4  `}
+                  : 'text-zinc-700 bg-transparent  '
+              } flex items-center justify-start gap-4 p-4  `}
             >
               <p className={`${isActive ? 'base-bold' : 'base-medium'}`}>
                 {' '}

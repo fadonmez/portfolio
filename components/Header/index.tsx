@@ -28,7 +28,7 @@ const Header = () => {
               className={`${
                 isActive
                   ? 'bg-fuchsia-300/20 text-fuchsia-400 rounded-lg'
-                  : 'text-zinc-700 '
+                  : 'text-zinc-700 bg-transparent '
               } px-4 py-2`}
               href={link.route}
             >

@@ -41,7 +41,7 @@ const ProjectCard = ({ project }: IProps) => {
             <a
               href={project.link}
               target='_blank'
-              className='bg-fuchsia-300/30 p-4 rounded-md w-fit flex items-center text-fuchsia-500'
+              className='bg-zinc-900 p-4 rounded-md w-fit flex items-center text-zinc-100'
             >
               Check Live Site
               <svg

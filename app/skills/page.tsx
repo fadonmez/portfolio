@@ -1,7 +1,12 @@
 import { MotionDiv } from '@/components/MotionDiv';
 import SkillCard from '@/components/shared/SkillCard';
 import { skills } from '@/constants/skills';
+import { Metadata } from 'next';
 import React from 'react';
+export const metadata: Metadata = {
+  title: 'Skills',
+  description: 'My Skills',
+};
 
 const container = {
   visible: {
