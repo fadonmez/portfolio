@@ -5,3 +5,10 @@ export interface SidebarLink {
 export interface Skills {
   title: string;
 }
+
+export interface Projects {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+}

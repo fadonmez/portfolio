@@ -10,8 +10,8 @@ export const sidebarLinks: SidebarLink[] = [
     label: 'Skills',
   },
   {
-    route: '/experiences',
-    label: 'Experiences',
+    route: '/blog',
+    label: 'Blog',
   },
   {
     route: '/contact',

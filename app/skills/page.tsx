@@ -17,7 +17,7 @@ const Skills = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.1, ease: 'easeInOut' }}
-      className='container flex flex-col justify-start py-6 lg:py-32  items-center gap-6  h-fit lg:h-[88%] w-full  '
+      className='container flex flex-col justify-start py-6 lg:py-24  items-center gap-6  h-fit lg:h-[88%] w-full  '
     >
       <h2 className='text-5xl font-bold text-center '>My Skills</h2>
       <p className='text-md text-zinc-600 text-center'>

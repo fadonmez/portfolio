@@ -24,6 +24,7 @@ const Header = () => {
 
           return (
             <Link
+              key={link.route}
               className={`${
                 isActive
                   ? 'bg-fuchsia-300/20 text-fuchsia-400 rounded-lg'
