@@ -21,11 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className='h-full' lang='en'>
-      <body className={`${inter.className} h-full`}>
-        <Header />
-        {children}
-        <Toaster />
+    <html lang='en'>
+      <body className={inter.className}>
+        <main className='flex flex-col min-h-screen'>
+          <Header />
+          {children}
+          <Toaster />
+        </main>
       </body>
     </html>
   );

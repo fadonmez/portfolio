@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation';
 const Header = () => {
   const pathname = usePathname();
   return (
-    <header className='container flex mx-auto px-7 py-3.5 justify-between items-center h-[12%]'>
+    <header className='container flex mx-auto px-7 py-3.5 justify-between items-center '>
       <Link href='/' className='flex items-center gap-2'>
         <div className='flex items-start justify-start flex-col'>
           <h3 className='font-bold text-xl md:text-3xl '>Fatih Dönmez</h3>

@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className='bg-black h-[88%]'>
+    <div className='flex-1 flex bg-black '>
       <MotionDiv
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1, ease: 'easeInOut' }}
-        className='container flex flex-col items-center h-full justify-center '
+        className='container flex flex-col items-center justify-center '
       >
         <h1 className='text-4xl md:text-6xl font-semibold text-center text-white '>
           Welcome to my <br />

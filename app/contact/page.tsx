@@ -12,7 +12,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.1, ease: 'easeInOut' }}
-      className='container w-full md:w-1/2  flex flex-col justify-start py-6 lg:py-24  items-center gap-6  h-fit lg:h-[88%]'
+      className='container w-full md:w-1/2  flex flex-col justify-start py-6 lg:py-24  items-center gap-6 flex-1'
     >
       <h2 className='text-5xl font-bold text-center '>Contact Me</h2>
       <p className='text-center text-md text-zinc-600'>

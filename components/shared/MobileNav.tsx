@@ -16,7 +16,7 @@ const NavContent = () => {
   const pathname = usePathname();
 
   return (
-    <section className='flex h-fit flex-col gap-6   pt-16 '>
+    <section className='flex h-fit flex-col gap-4  pt-6  '>
       {sidebarLinks.map((item) => {
         const isActive =
           (pathname.includes(item.route) && item.route.length > 1) ||
@@ -49,10 +49,13 @@ const MobileNav = () => {
       <SheetTrigger className='block md:hidden'>
         <BiMenuAltLeft size={32} />
       </SheetTrigger>
-      <SheetContent className='border-none'>
-        <Link href='/' className='flex items-center gap-1'>
-          <p>Fatih Donmez</p>
-        </Link>
+      <SheetContent className='border-none  flex flex-col  '>
+        <SheetClose asChild>
+          <Link href='/' className='flex items-center gap-1'>
+            <p>Fatih Donmez</p>
+          </Link>
+        </SheetClose>
+
         <SheetClose asChild>
           <NavContent />
         </SheetClose>
