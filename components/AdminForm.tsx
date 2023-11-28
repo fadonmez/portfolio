@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import * as z from 'zod';
 import { useToast } from '@/components/ui/use-toast';
+
 import {
   Form,
   FormControl,
@@ -20,20 +21,19 @@ import { sendMail } from '@/lib/actions/mail.action';
 import { useState } from 'react';
 
 const formSchema = z.object({
-  email: z.string().email(),
-  message: z.string().min(10),
+  title: z.string(),
+  description: z.string().min(10),
 });
 
-const ContactForm = () => {
+const AdminForm = () => {
   const [loading, setLoading] = useState(false);
-
   const { toast } = useToast();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: '',
-      message: '',
+      title: '',
+      description: '',
     },
   });
 
@@ -42,18 +42,18 @@ const ContactForm = () => {
     setLoading(true);
     console.log(values);
     try {
-      const res = await sendMail(values);
-      if (res.success) {
-        toast({
-          title: 'Success',
-          description: res.message,
-          duration: 5000,
-        });
-      }
+      // TODO: Create a server action and implement here
+      console.log(values);
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
+      toast({
+        title: 'Success',
+        description: 'Your blog has been shared successfully',
+        duration: 5000,
+      });
+
       form.reset();
     }
   }
@@ -63,13 +63,13 @@ const ContactForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6 w-full'>
         <FormField
           control={form.control}
-          name='email'
+          name='title'
           render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Input
-                  type='email'
-                  placeholder='Your email'
+                  type='text'
+                  placeholder='Blog title'
                   className='outline-none focus:border-none w-full'
                   {...field}
                 />
@@ -80,13 +80,13 @@ const ContactForm = () => {
         />
         <FormField
           control={form.control}
-          name='message'
+          name='description'
           render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Textarea
                   rows={7}
-                  placeholder='Type your message here'
+                  placeholder='Type your description'
                   {...field}
                 />
               </FormControl>
@@ -99,11 +99,11 @@ const ContactForm = () => {
           className='w-full disabled:bg-zinc-700'
           type='submit'
         >
-          {loading ? 'Sending...' : 'Send Message'}
+          {loading ? 'Loading...' : 'Share a blog write'}
         </Button>
       </form>
     </Form>
   );
 };
 
-export default ContactForm;
+export default AdminForm;
