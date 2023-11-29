@@ -1,3 +1,5 @@
+import { auth } from '@/auth';
+import LogOut from '@/components/LogOut';
 import { MotionDiv } from '@/components/MotionDiv';
 import SkillCard from '@/components/shared/SkillCard';
 import { skills } from '@/constants/skills';
@@ -16,7 +18,8 @@ const container = {
   },
 };
 
-const Skills = () => {
+const Skills = async () => {
+  const session = await auth();
   return (
     <MotionDiv
       initial={{ opacity: 0 }}
@@ -39,6 +42,7 @@ const Skills = () => {
           <SkillCard key={skill.title} skill={skill} />
         ))}
       </MotionDiv>
+      {session && <LogOut />}
     </MotionDiv>
   );
 };

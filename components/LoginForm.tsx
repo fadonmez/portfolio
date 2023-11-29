@@ -3,35 +3,30 @@ import React, { useState } from 'react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { useToast } from '@/components/ui/use-toast';
+import { authenticate } from '@/lib/actions/auth.actions';
 
 const LoginForm = () => {
   const { toast } = useToast();
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    toast({
-      title: 'Success',
-      description: 'test',
-      duration: 5000,
-    });
-    console.log(email, pass);
+  const handleLogin = async (formData: any) => {
     setLoading(true);
+    console.log(formData);
+
     try {
-      // TODO: Build an authentication system with next-auth and mongodb
+      const data = await authenticate(formData);
+      if (data) {
+        setError(data.error);
+      }
     } catch (error) {
       console.log(error);
     } finally {
-      setEmail('');
-      setPass('');
       setLoading(false);
     }
   };
   return (
-    <form onSubmit={handleSubmit} className='max-w-sm mx-auto'>
+    <form action={handleLogin} className='max-w-sm mx-auto'>
       <div className='mb-5'>
         <label
           htmlFor='email'
@@ -40,8 +35,8 @@ const LoginForm = () => {
           Your email
         </label>
         <Input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name='email'
+          id='email'
           type='email'
           placeholder='Email'
           required
@@ -55,9 +50,9 @@ const LoginForm = () => {
           Your password
         </label>
         <Input
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
-          type='text'
+          id='password'
+          name='password'
+          type='password'
           placeholder='Password'
           required
         />
@@ -70,6 +65,7 @@ const LoginForm = () => {
       >
         {loading ? 'Loading...' : 'Login'}
       </Button>
+      <p className='text-red-500'>{error}</p>
     </form>
   );
 };

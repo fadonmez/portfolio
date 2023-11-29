@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { sidebarLinks } from '@/constants/nav_links';
 import MobileNav from '../shared/MobileNav';
 import { usePathname } from 'next/navigation';
 
-const Header = () => {
+const Header = async () => {
   const pathname = usePathname();
+
   return (
     <header className='container flex mx-auto px-7 py-3.5 justify-between items-center '>
       <Link href='/' className='flex items-center gap-2'>
@@ -37,6 +37,7 @@ const Header = () => {
           );
         })}
       </nav>
+
       <MobileNav />
     </header>
   );

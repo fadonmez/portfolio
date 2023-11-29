@@ -1,6 +1,7 @@
 import { MotionDiv } from '@/components/MotionDiv';
 import { getBlogById } from '@/lib/actions/blog.action';
 import { formatDateDay } from '@/lib/utils';
+import { ResolvingMetadata, Metadata } from 'next';
 import React from 'react';
 
 interface IBlog {
@@ -24,6 +25,16 @@ const item = {
   },
 };
 
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  // read route params
+  const result: IBlog = await getBlogById({ id: params.id });
+
+  return {
+    title: result.blog.title,
+    description: result.blog.description,
+  };
+}
+
 const page = async ({ params }: any) => {
   const result: IBlog = await getBlogById({ id: params.id });
   const blogs = result.blog;
@@ -37,7 +48,7 @@ const page = async ({ params }: any) => {
             {formatDateDay(blogs.createdAt)}
           </p>
         </div>
-        <p>{blogs.description}</p>
+        <p className='text-zinc-800'>{blogs.description}</p>
       </div>
     </MotionDiv>
   );
