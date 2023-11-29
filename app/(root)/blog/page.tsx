@@ -27,6 +27,7 @@ const container = {
 };
 const Blog = async () => {
   const result: BlogData = await getBlogs({});
+  console.log(result);
 
   return (
     <MotionDiv
