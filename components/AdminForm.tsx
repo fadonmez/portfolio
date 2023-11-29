@@ -19,6 +19,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { sendMail } from '@/lib/actions/mail.action';
 import { useState } from 'react';
+import { createBlog } from '@/lib/actions/blog.action';
 
 const formSchema = z.object({
   title: z.string(),
@@ -40,20 +41,23 @@ const AdminForm = () => {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
-    console.log(values);
     try {
-      // TODO: Create a server action and implement here
-      console.log(values);
+      const res = await createBlog(values);
+      toast({
+        title: 'Success',
+        description: res.message,
+        duration: 5000,
+      });
     } catch (error) {
+      toast({
+        title: 'Success',
+        description: 'An error while creating blog,',
+        variant: 'destructive',
+        duration: 5000,
+      });
       console.log(error);
     } finally {
       setLoading(false);
-      toast({
-        title: 'Success',
-        description: 'Your blog has been shared successfully',
-        duration: 5000,
-      });
-
       form.reset();
     }
   }
