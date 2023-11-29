@@ -24,8 +24,7 @@ const container = {
     },
   },
 };
-
-const Blog = async () => {
+const getData = async () => {
   const result = await fetch(
     'https://portfolio-seven-alpha-37.vercel.app/api/blogs',
     {
@@ -33,7 +32,11 @@ const Blog = async () => {
     }
   );
   const data = await result.json();
+  return data;
+};
 
+const Blog = async () => {
+  const blogs = await getData();
   return (
     <MotionDiv
       initial={{ opacity: 0 }}
@@ -51,8 +54,8 @@ const Blog = async () => {
         animate='visible'
         className='grid grid-cols-1 w-full   gap-6 '
       >
-        {data &&
-          data.map((blog: any) => <BlogCard key={blog._id} blog={blog} />)}
+        {blogs &&
+          blogs.map((blog: any) => <BlogCard key={blog._id} blog={blog} />)}
       </MotionDiv>
     </MotionDiv>
   );
