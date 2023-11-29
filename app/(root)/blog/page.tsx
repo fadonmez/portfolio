@@ -29,7 +29,6 @@ const container = {
 const Blog = async () => {
   const result: BlogData = await getBlogs({});
   const session = await auth();
-  console.log(result);
 
   return (
     <MotionDiv
