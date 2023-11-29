@@ -1,7 +1,5 @@
-import { auth } from '@/auth';
 import BlogCard from '@/components/BlogCard';
 import { MotionDiv } from '@/components/MotionDiv';
-import { getBlogs } from '@/lib/actions/blog.action';
 import { Metadata } from 'next';
 import React from 'react';
 
@@ -27,8 +25,10 @@ const container = {
   },
 };
 const Blog = async () => {
-  const result: BlogData = await getBlogs({});
-  const session = await auth();
+  const result = await fetch('http://localhost:3000/api/blogs', {
+    next: { revalidate: 3600 },
+  });
+  const data = await result.json();
 
   return (
     <MotionDiv
@@ -47,7 +47,7 @@ const Blog = async () => {
         animate='visible'
         className='grid grid-cols-1 w-full   gap-6 '
       >
-        {result.blogs.map((blog: any) => (
+        {data.map((blog: any) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
       </MotionDiv>
