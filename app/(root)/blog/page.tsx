@@ -51,9 +51,8 @@ const Blog = async () => {
         animate='visible'
         className='grid grid-cols-1 w-full   gap-6 '
       >
-        {data.map((blog: any) => (
-          <BlogCard key={blog._id} blog={blog} />
-        ))}
+        {data &&
+          data.map((blog: any) => <BlogCard key={blog._id} blog={blog} />)}
       </MotionDiv>
     </MotionDiv>
   );
