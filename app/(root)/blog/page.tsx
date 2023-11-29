@@ -25,12 +25,9 @@ const container = {
   },
 };
 const getData = async () => {
-  const result = await fetch(
-    'https://portfolio-seven-alpha-37.vercel.app/api/blogs',
-    {
-      next: { revalidate: 3600 },
-    }
-  );
+  const result = await fetch(`${process.env.API_URL}/api/blogs`, {
+    next: { revalidate: 3600 },
+  });
   const data = await result.json();
   return data;
 };
