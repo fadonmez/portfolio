@@ -1,3 +1,4 @@
+import { auth } from '@/auth';
 import BlogCard from '@/components/BlogCard';
 import { MotionDiv } from '@/components/MotionDiv';
 import { getBlogs } from '@/lib/actions/blog.action';
@@ -27,6 +28,7 @@ const container = {
 };
 const Blog = async () => {
   const result: BlogData = await getBlogs({});
+  const session = await auth();
   console.log(result);
 
   return (
