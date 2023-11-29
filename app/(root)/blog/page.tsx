@@ -24,10 +24,14 @@ const container = {
     },
   },
 };
+
 const Blog = async () => {
-  const result = await fetch('http://localhost:3000/api/blogs', {
-    next: { revalidate: 3600 },
-  });
+  const result = await fetch(
+    'https://portfolio-seven-alpha-37.vercel.app/api/blogs',
+    {
+      next: { revalidate: 3600 },
+    }
+  );
   const data = await result.json();
 
   return (
