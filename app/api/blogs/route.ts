@@ -8,7 +8,7 @@ export async function GET() {
     connectToDatabase();
     const blogs = await Blog.find({}).sort({ createdAt: -1 });
     revalidatePath('/api/blogs');
-    revalidatePath('/blogs');
+    revalidatePath('/blog');
     return NextResponse.json(blogs);
   } catch (error) {
     console.log(error);
