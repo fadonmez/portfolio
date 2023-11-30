@@ -17,7 +17,7 @@ const DesktopNav = () => {
             key={link.route}
             className={`${
               isActive
-                ? 'bg-green-300/20 text-green-400 rounded-lg'
+                ? 'bg-green-300/20 text-green-700 rounded-lg font-semibold'
                 : 'text-zinc-700 bg-transparent '
             } px-4 py-2`}
             href={link.route}

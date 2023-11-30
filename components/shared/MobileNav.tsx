@@ -27,7 +27,7 @@ const NavContent = () => {
               href={item.route}
               className={`${
                 isActive
-                  ? ' bg-green-100 text-green-400 rounded-lg'
+                  ? ' bg-green-300/20 text-green-700 font-semibold rounded-lg'
                   : 'text-zinc-700 bg-transparent  '
               } flex items-center justify-start gap-4 p-4  `}
             >

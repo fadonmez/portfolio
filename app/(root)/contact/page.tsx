@@ -2,6 +2,10 @@ import ContactForm from '@/components/ContactForm';
 import { MotionDiv } from '@/components/MotionDiv';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
+  other: {
+    viewport:
+      'width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1,  user-scalable=no',
+  },
   title: 'Contact',
   description: 'Contact with me',
 };
