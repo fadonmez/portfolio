@@ -53,7 +53,9 @@ const Blog = async () => {
         className='grid grid-cols-1 w-full   gap-6 '
       >
         {blogs.length ? (
-          blogs.map((blog: any) => <BlogCard key={blog._id} blog={blog} />)
+          blogs.map((blog: any) => (
+            <BlogCard key={blog._id} blog={JSON.stringify(blog)} />
+          ))
         ) : (
           <h2>No Blog</h2>
         )}

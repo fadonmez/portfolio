@@ -1,6 +1,8 @@
 import AdminForm from '@/components/AdminForm';
 import { MotionDiv } from '@/components/MotionDiv';
 import React from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import AdminBlog from '@/components/AdminBlog';
 
 const Admin = () => {
   return (
@@ -14,7 +16,20 @@ const Admin = () => {
       <p className='text-center text-md text-zinc-600'>
         Enter your blog write title and description.
       </p>
-      <AdminForm />
+      <Tabs defaultValue='account' className='w-full'>
+        <TabsList>
+          <TabsTrigger defaultChecked={true} value='add'>
+            Add Blog
+          </TabsTrigger>
+          <TabsTrigger value='delete'>Delete Blog</TabsTrigger>
+        </TabsList>
+        <TabsContent defaultChecked={true} value='add'>
+          <AdminForm />
+        </TabsContent>
+        <TabsContent defaultChecked={true} value='delete'>
+          <AdminBlog />
+        </TabsContent>
+      </Tabs>
     </MotionDiv>
   );
 };
