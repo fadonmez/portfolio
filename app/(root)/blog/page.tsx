@@ -24,7 +24,7 @@ const container = {
     },
   },
 };
-const getData = async () => {
+export const getData = async () => {
   const result = await fetch(
     `${process.env.API_URL}/api/blogs?secret=${process.env.API_SECRET}`
   );
