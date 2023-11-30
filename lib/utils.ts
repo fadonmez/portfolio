@@ -27,7 +27,10 @@ export function formatDateDay(inputDate: string): string {
 
 export const getData = async () => {
   const result = await fetch(
-    `${process.env.API_URL}/api/blogs?secret=${process.env.API_SECRET}`
+    `${process.env.API_URL}/api/blogs?secret=${process.env.API_SECRET}`,
+    {
+      next: { revalidate: 60 * 60 * 24 * 7 },
+    }
   );
   const data = await result.json();
   return data;
