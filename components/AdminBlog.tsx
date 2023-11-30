@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogCard from './BlogCard';
-import { getData } from '@/app/(root)/blog/page';
+import { getData } from '@/lib/utils';
 
 const AdminBlog = async () => {
   const blogs: any = await getData();

@@ -1,5 +1,6 @@
 import BlogCard from '@/components/BlogCard';
 import { MotionDiv } from '@/components/MotionDiv';
+import { getData } from '@/lib/utils';
 import { Metadata } from 'next';
 import React from 'react';
 
@@ -23,13 +24,6 @@ const container = {
       staggerChildren: 0.1,
     },
   },
-};
-export const getData = async () => {
-  const result = await fetch(
-    `${process.env.API_URL}/api/blogs?secret=${process.env.API_SECRET}`
-  );
-  const data = await result.json();
-  return data;
 };
 
 const Blog = async () => {
