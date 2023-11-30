@@ -11,6 +11,7 @@ export async function createBlog(params: any) {
     await Blog.create({ title, description });
     console.log('blog created');
     revalidatePath('/blog');
+    revalidatePath('/admin');
     return { message: 'Blog created succesfully' };
   } catch (error) {
     console.log(error);
@@ -34,6 +35,7 @@ export async function getBlogById({ id }: any) {
     connectToDatabase();
     const blog = await Blog.findById({ _id: id });
     revalidatePath('/blog');
+    revalidatePath('/admin');
     return { blog };
   } catch (error) {
     console.log(error);
@@ -46,6 +48,7 @@ export async function deleteBlog({ id }: any) {
     connectToDatabase();
     await Blog.findByIdAndDelete({ _id: id });
     revalidatePath('/blog');
+    revalidatePath('/admin');
     return { message: 'Blog deleted successfully' };
   } catch (error) {
     console.log(error);

@@ -15,6 +15,7 @@ export async function GET(req: NextRequest) {
     const blogs = await Blog.find({}).sort({ createdAt: -1 });
     revalidatePath('/api/blogs');
     revalidatePath('/blog');
+    revalidatePath('/admin');
     return NextResponse.json(blogs);
   } catch (error) {
     console.error(error);
