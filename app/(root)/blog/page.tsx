@@ -25,13 +25,12 @@ const container = {
   },
 };
 const getData = async () => {
-  // const result = await fetch(`${process.env.API_URL}/api/blogs`, {
-  //   next: { revalidate: 3600 },
-  // });
+  const result = await fetch(`${process.env.API_URL}/api/blogs`, {
+    next: { revalidate: 3600 },
+  });
 
-  // const data = await result.json();
-  // return data;
-  return [];
+  const data = await result.json();
+  return data;
 };
 
 const Blog = async () => {
@@ -53,7 +52,7 @@ const Blog = async () => {
         animate='visible'
         className='grid grid-cols-1 w-full   gap-6 '
       >
-        {blogs ? (
+        {blogs.length ? (
           blogs.map((blog: any) => <BlogCard key={blog._id} blog={blog} />)
         ) : (
           <h2>No Blog</h2>
