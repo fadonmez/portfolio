@@ -26,7 +26,7 @@ const container = {
 };
 const getData = async () => {
   const result = await fetch(`${process.env.API_URL}/api/blogs`, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 300 },
   });
 
   const data = await result.json();
@@ -35,6 +35,7 @@ const getData = async () => {
 
 const Blog = async () => {
   const blogs = await getData();
+
   return (
     <MotionDiv
       initial={{ opacity: 0 }}
