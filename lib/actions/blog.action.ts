@@ -10,7 +10,7 @@ export async function createBlog(params: any) {
     await connectToDatabase();
     await Blog.create({ title, description });
     console.log('blog created');
-    revalidatePath('/');
+    revalidatePath('/blog');
     return { message: 'Blog created succesfully' };
   } catch (error) {
     console.log(error);

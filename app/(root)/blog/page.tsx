@@ -25,10 +25,9 @@ const container = {
   },
 };
 const getData = async () => {
-  const result = await fetch(`${process.env.API_URL}/api/blogs`, {
-    next: { revalidate: 300 },
-  });
-
+  const result = await fetch(
+    `${process.env.API_URL}/api/blogs?secret=${process.env.API_SECRET}`
+  );
   const data = await result.json();
   return data;
 };
