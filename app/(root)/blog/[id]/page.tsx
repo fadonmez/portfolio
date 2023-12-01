@@ -1,4 +1,5 @@
 import { MotionDiv } from '@/components/MotionDiv';
+import { Skeleton } from '@/components/ui/skeleton';
 import { getBlogById } from '@/lib/actions/blog.action';
 import { formatDateDay } from '@/lib/utils';
 import { ResolvingMetadata, Metadata } from 'next';

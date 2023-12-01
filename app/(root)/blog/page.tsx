@@ -1,5 +1,6 @@
 import BlogCard from '@/components/BlogCard';
 import { MotionDiv } from '@/components/MotionDiv';
+import { Skeleton } from '@/components/ui/skeleton';
 import { getData } from '@/lib/utils';
 import { Metadata } from 'next';
 import React from 'react';
