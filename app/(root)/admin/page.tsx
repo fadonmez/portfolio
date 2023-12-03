@@ -16,17 +16,15 @@ const Admin = () => {
       <p className='text-center text-md text-zinc-600'>
         Enter your blog write title and description.
       </p>
-      <Tabs defaultValue='account' className='w-full'>
+      <Tabs defaultValue='add' className='w-full'>
         <TabsList>
-          <TabsTrigger defaultChecked={true} value='add'>
-            Add Blog
-          </TabsTrigger>
+          <TabsTrigger value='add'>Add Blog</TabsTrigger>
           <TabsTrigger value='delete'>Delete Blog</TabsTrigger>
         </TabsList>
-        <TabsContent defaultChecked={true} value='add'>
+        <TabsContent value='add'>
           <AdminForm />
         </TabsContent>
-        <TabsContent defaultChecked={true} value='delete'>
+        <TabsContent value='delete'>
           <AdminBlog />
         </TabsContent>
       </Tabs>
