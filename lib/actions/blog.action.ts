@@ -47,7 +47,7 @@ export async function deleteBlog({ id }: any) {
     await Blog.findByIdAndDelete({ _id: id });
     revalidatePath('/blog');
     revalidatePath('/admin');
-    return { message: 'Blog deleted successfully' };
+    console.log('blog deleted');
   } catch (error) {
     console.log(error);
     throw error;
