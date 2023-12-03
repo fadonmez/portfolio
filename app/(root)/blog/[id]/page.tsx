@@ -1,6 +1,6 @@
 import { MotionDiv } from '@/components/MotionDiv';
 import { Skeleton } from '@/components/ui/skeleton';
-import { getBlogById } from '@/lib/actions/blog.action';
+import { getBlogById, getBlogs } from '@/lib/actions/blog.action';
 import { formatDateDay } from '@/lib/utils';
 import { ResolvingMetadata, Metadata } from 'next';
 import React from 'react';
@@ -13,7 +13,12 @@ interface IBlog {
     createdAt: string;
   };
 }
-
+interface Blog {
+  _id: string;
+  title: string;
+  description: string;
+  createdAt: string;
+}
 const item = {
   hidden: { opacity: 0, translateY: 20 },
   visible: {
@@ -34,6 +39,13 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title: result.blog.title,
     description: result.blog.description,
   };
+}
+
+export async function generateStaticParams() {
+  const blogIds = await getBlogs({});
+  return blogIds.blogs.map((blog: any) => {
+    return { id: blog._id.toString() };
+  });
 }
 
 const page = async ({ params }: any) => {

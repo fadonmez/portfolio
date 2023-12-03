@@ -34,8 +34,6 @@ export async function getBlogById({ id }: any) {
   try {
     connectToDatabase();
     const blog = await Blog.findById({ _id: id });
-    revalidatePath('/blog');
-    revalidatePath('/admin');
     return { blog };
   } catch (error) {
     console.log(error);
