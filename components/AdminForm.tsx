@@ -8,10 +8,8 @@ import { useToast } from '@/components/ui/use-toast';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 
@@ -55,7 +53,6 @@ const AdminForm = () => {
         variant: 'destructive',
         duration: 5000,
       });
-      console.log(error);
     } finally {
       setLoading(false);
       form.reset();

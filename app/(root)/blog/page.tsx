@@ -1,6 +1,5 @@
 import BlogCard from '@/components/BlogCard';
 import { MotionDiv } from '@/components/MotionDiv';
-import { Skeleton } from '@/components/ui/skeleton';
 import { getData } from '@/lib/utils';
 import { Metadata } from 'next';
 import React from 'react';
@@ -16,13 +15,10 @@ interface Blog {
   description: string;
 }
 
-interface BlogData {
-  blogs: Blog[];
-}
 const container = {
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.25,
     },
   },
 };

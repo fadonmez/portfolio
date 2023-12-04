@@ -1,40 +1,34 @@
 import { MotionDiv } from '@/components/MotionDiv';
-import { Skeleton } from '@/components/ui/skeleton';
 import { getBlogById, getBlogs } from '@/lib/actions/blog.action';
 import { formatDateDay } from '@/lib/utils';
-import { ResolvingMetadata, Metadata } from 'next';
+import { Metadata } from 'next';
 import React from 'react';
+import NotFound from './not.found';
 
 interface IBlog {
-  blog: {
+  blog?: {
     _id: string;
     title: string;
     description: string;
     createdAt: string;
   };
 }
-interface Blog {
-  _id: string;
-  title: string;
-  description: string;
-  createdAt: string;
-}
-const item = {
-  hidden: { opacity: 0, translateY: 20 },
-  visible: {
-    opacity: 1,
-    translateY: 0,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-};
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
+  if (params.id.length !== 24) {
+    return {
+      title: 'Not Found',
+      description: '404',
+    };
+  }
   // read route params
   const result: IBlog = await getBlogById({ id: params.id });
-
+  if (!result.blog) {
+    return {
+      title: 'Not Found',
+      description: '404',
+    };
+  }
   return {
     title: result.blog.title,
     description: result.blog.description,
@@ -49,11 +43,22 @@ export async function generateStaticParams() {
 }
 
 const page = async ({ params }: any) => {
+  if (params.id.length !== 24) {
+    return <NotFound />;
+  }
   const result: IBlog = await getBlogById({ id: params.id });
+  if (!result.blog) {
+    return <NotFound />;
+  }
   const blogs = result.blog;
 
   return (
-    <MotionDiv variants={item} className='pt-10 bg-zinc-100 flex-1'>
+    <MotionDiv
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.1, ease: 'easeInOut' }}
+      className='py-10 bg-zinc-100 flex-1'
+    >
       <div className='container flex flex-col gap-4'>
         <div className='flex flex-col gap-1 mb-6 '>
           <h1 className='text-4xl font-semibold'>{blogs.title}</h1>

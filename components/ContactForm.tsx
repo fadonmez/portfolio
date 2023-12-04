@@ -7,10 +7,8 @@ import { useToast } from '@/components/ui/use-toast';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 
@@ -40,7 +38,6 @@ const ContactForm = () => {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
-    console.log(values);
     try {
       const res = await sendMail(values);
       if (res.success) {

@@ -12,8 +12,6 @@ const LoginForm = () => {
 
   const handleLogin = async (formData: any) => {
     setLoading(true);
-    console.log(formData);
-
     try {
       const data = await authenticate(formData);
       if (data) {

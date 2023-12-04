@@ -3,6 +3,7 @@
 import Blog from '@/database/blog.model';
 import { connectToDatabase } from '../mongoose';
 import { revalidatePath } from 'next/cache';
+import mongoose from 'mongoose';
 
 export async function createBlog(params: any) {
   try {
@@ -31,13 +32,18 @@ export async function getBlogs(params: any) {
 }
 
 export async function getBlogById({ id }: any) {
-  try {
-    connectToDatabase();
-    const blog = await Blog.findById({ _id: id });
-    return { blog };
-  } catch (error) {
-    console.log(error);
-    throw error;
+  if (mongoose.Types.ObjectId.isValid(id)) {
+    try {
+      connectToDatabase();
+      const blog = await Blog.findById({ _id: id });
+      if (!blog) return { blog: null };
+      return { blog };
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  } else {
+    return { message: 'invalid id' };
   }
 }
 
