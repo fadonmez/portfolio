@@ -35,6 +35,12 @@ export const skills: Skills[] = [
     title: 'Mongoose',
   },
   {
+    title: 'PostgreSQL',
+  },
+  {
+    title: 'Prisma',
+  },
+  {
     title: 'Redux',
   },
   {
