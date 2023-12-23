@@ -44,6 +44,9 @@ export const skills: Skills[] = [
     title: 'Redux',
   },
   {
+    title: 'Zustand',
+  },
+  {
     title: 'Framer Motion',
   },
 ];
