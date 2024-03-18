@@ -24,7 +24,7 @@ const item = {
 const ProjectCard = ({ project }: IProps) => {
   return (
     <MotionDiv variants={item} className='h-full flex flex-col rounded border-2 border-gray-200 border-opacity-60'>
-      <Image src={project.image} alt='image' width={1000} height={1000} className='rounded w-full' />
+      <Image src={project.image} alt='image' width={500} height={500} className='rounded ' />
       <div className='p-4  flex flex-col h-full'>
         <h1 className='title-font text-lg font-medium text-gray-900'>
           {project.title}
