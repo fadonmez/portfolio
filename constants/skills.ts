@@ -14,7 +14,7 @@ export const skills: Skills[] = [
     title: 'TypeScript',
   },
   {
-    title: 'React',
+    title: 'React.js',
   },
   {
     title: 'Next.js',
@@ -48,5 +48,11 @@ export const skills: Skills[] = [
   },
   {
     title: 'Framer Motion',
+  },
+  {
+    title: 'Nest.js'
+  },
+  {
+    title: 'React Native',
   },
 ];

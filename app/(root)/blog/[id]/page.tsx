@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const blogIds = await getBlogs({});
-  return blogIds.blogs.map((blog: any) => {
+  const blogIds = await getBlogs();
+  return blogIds.map((blog: any) => {
     return { id: blog._id.toString() };
   });
 }

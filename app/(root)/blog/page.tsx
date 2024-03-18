@@ -1,8 +1,8 @@
 import BlogCard from '@/components/BlogCard';
 import { MotionDiv } from '@/components/MotionDiv';
-import { getData } from '@/lib/utils';
 import { Metadata } from 'next';
 import React from 'react';
+import {getBlogs} from "@/lib/actions/blog.action";
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -24,7 +24,8 @@ const container = {
 };
 
 const Blog = async () => {
-  const blogs = await getData();
+  const blogs = await getBlogs();
+
 
   return (
     <MotionDiv
@@ -33,7 +34,7 @@ const Blog = async () => {
       transition={{ duration: 0.5, delay: 0.1, ease: 'easeInOut' }}
       className='container flex flex-col justify-start py-6 lg:py-24  items-center gap-6 flex-1 w-full'
     >
-      <h2 className='text-5xl font-bold text-center '>My Blog</h2>
+      <h2 className='text-5xl font-bold text-center'>My Blog</h2>
       <p className='text-center text-md text-zinc-600'>
         Welcome to my blog, where I share my thoughts and experiences with.
       </p>

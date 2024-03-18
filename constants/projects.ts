@@ -14,15 +14,9 @@ export const projects: Projects[] = [
     link: 'https://en-otel-v2.vercel.app',
   },
   {
-    title: 'Arabaci',
-    description: 'a car buying platform where you can choose on the showcase',
-    image: '/assets/Arabacı.png',
-    link: 'https://arabaci-app.vercel.app',
-  },
-  {
-    title: 'Arabaci',
-    description: 'a car buying platform where you can choose on the showcase',
-    image: '/assets/Arabacı.png',
-    link: 'https://arabaci-app.vercel.app',
+    title: 'Svogo',
+    description: 'Still work on progress...',
+    image: '/assets/enOtel.png',
+    link: 'https://en-otel-v2.vercel.app',
   },
 ];

@@ -20,11 +20,11 @@ export async function createBlog(params: any) {
   }
 }
 
-export async function getBlogs(params: any) {
+export async function getBlogs() {
   try {
-    connectToDatabase();
+    await connectToDatabase();
     const blogs = await Blog.find({}).sort({ createdAt: -1 });
-    return { blogs };
+    return blogs;
   } catch (error) {
     console.log(error);
     throw error;
@@ -34,7 +34,7 @@ export async function getBlogs(params: any) {
 export async function getBlogById({ id }: any) {
   if (mongoose.Types.ObjectId.isValid(id)) {
     try {
-      connectToDatabase();
+      await connectToDatabase();
       const blog = await Blog.findById({ _id: id });
       if (!blog) return { blog: null };
       return { blog };
@@ -49,7 +49,7 @@ export async function getBlogById({ id }: any) {
 
 export async function deleteBlog({ id }: any) {
   try {
-    connectToDatabase();
+    await connectToDatabase();
     await Blog.findByIdAndDelete({ _id: id });
     revalidatePath('/blog');
     revalidatePath('/admin');
