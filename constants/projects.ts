@@ -16,7 +16,7 @@ export const projects: Projects[] = [
   {
     title: 'Svogo',
     description: 'Still work on progress...',
-    image: '/assets/premium.svg',
+    image: '/assets/premium.png',
     link: 'https://en-otel-v2.vercel.app',
   },
 ];
